@@ -41,7 +41,7 @@ export const ProductsCatalog: React.FC<Props> = ({
       ?.value || PER_PAGE_OPTIONS[0].value;
 
   const sort = searchParams.get('sort') || SORT_OPTIONS[0].value;
-  const query = searchParams.get('query');
+  const query = searchParams.get('query') || '';
 
   const refineProducts = (p: Product[]) => {
     let currentProducts = p.slice();
@@ -55,7 +55,13 @@ export const ProductsCatalog: React.FC<Props> = ({
     return currentProducts.sort((a, b) => {
       switch (sort) {
         case 'age':
-          return b.year - a.year;
+          const yearDiff = b.year - a.year;
+
+          if (yearDiff !== 0) {
+            return yearDiff;
+          }
+
+          return b.name.localeCompare(a.name);
         case 'title':
           return a.name.localeCompare(b.name);
         case 'price':
