@@ -1,9 +1,15 @@
 import { createRoot } from 'react-dom/client';
+import { HashRouter as Router } from 'react-router-dom';
+import { Root } from './Root';
+import { GlobalStateProvider } from './contex/State';
+import { ThemeProvider } from './contex/Theme';
 
-import 'bulma/css/bulma.css';
-import '@fortawesome/fontawesome-free/css/all.css';
-import './index.scss';
-
-import { App } from './App';
-
-createRoot(document.getElementById('root') as HTMLDivElement).render(<App />);
+createRoot(document.getElementById('root') as HTMLElement).render(
+  <Router>
+    <GlobalStateProvider>
+      <ThemeProvider>
+        <Root />
+      </ThemeProvider>
+    </GlobalStateProvider>
+  </Router>,
+);
