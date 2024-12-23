@@ -65,6 +65,6 @@ This is a fully functional e-commerce application built with React, TypeScript, 
 - **Sticky Header**: Includes the logo, navigation links, and cart/favorites icons.
 - **Footer**: Includes a link to the GitHub repository and a "Back to top" button.
 
-## Advanced Features
+### 8. Advanced Features
 
 - **Color Theme Switching**: Allows the user to switch between different themes.
