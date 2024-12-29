@@ -25,11 +25,15 @@ export const ProductPhotos: React.FC<Props> = ({ photos, className }) => {
       </div>
       <ul className={styles['product-photos__list']}>
         {photos.map(img => {
+          const isActive = img === currentImage;
+
           return (
             <li
-              className={styles['product-photos__item']}
+              className={cn(styles['product-photos__item'], {
+                [styles['product-photos__item--active']]: isActive,
+              })}
               key={img}
-              onClick={() => setCurrentImage(img)}
+              onClick={() => !isActive && setCurrentImage(img)}
             >
               <button className={styles['product-photos__btn']}>
                 <img

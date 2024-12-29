@@ -42,16 +42,22 @@
   }
 
   &__item {
-    border: 1px solid var(--elements);
-    border-radius: 8px;
-    padding: 3px;
     width: 51px;
     height: 49px;
+    border-radius: 8px;
+    border: 1px solid var(--elements);
+
+    @include transition(0.4s, border-color);
 
     @include on-tablet {
       width: 100%;
       height: 100%;
       aspect-ratio: 1 / 1;
+    }
+
+    &:hover,
+    &--active {
+      border-color: var(--primary);
     }
   }
 
@@ -60,7 +66,7 @@
     background-color: inherit;
     width: 100%;
     height: 100%;
-    padding: 0;
+    padding: 3px;
   }
 
   &__img {
