@@ -68,3 +68,62 @@ This is a fully functional e-commerce application built with React, TypeScript, 
 ### 8. Advanced Features
 
 - **Color Theme Switching**: Allows the user to switch between different themes.
+
+## Getting Started
+
+### 1. To run this project locally, ensure you have the following installed:
+
+The project has been tested with **Node.js v16.x** and **npm v7.x or higher**.  
+ Run the following commands to verify your versions:
+
+```bash
+ # Check Node.js version
+ node -v
+
+ # Check npm version
+ npm -v
+```
+
+### 2. Clone the repository
+
+```bash
+ git clone https://github.com/andriy-kostiuk/phone_catalog.git
+```
+
+### 3. Navigate to the project directory
+
+```bash
+ cd phone_catalog
+```
+
+### 4. Install dependencies
+
+```bash
+ npm install
+```
+
+### 5. Start the development server
+
+```bash
+  npm start
+```
+
+## Additional Scripts
+
+- #### Format Code
+
+  ```bash
+  npm run format
+  ```
+
+- #### Lint Code
+
+  ```bash
+  npm run lint
+  ```
+
+- #### Build Production Version
+
+  ```bash
+  npm run build
+  ```
