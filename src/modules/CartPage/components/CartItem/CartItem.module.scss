@@ -91,6 +91,13 @@
     border: 1px solid var(--icon-secondary);
     background-color: inherit;
 
+    @include transition;
+
+    &:hover {
+      border-color: var(--btn-hover-border);
+      background-color: var(--btn-hover);
+    }
+
     &::before,
     &::after {
       position: absolute;
@@ -117,6 +124,11 @@
 
     &:disabled {
       border-color: var(--elements);
+
+      &:hover {
+        border-color: --elements;
+        background-color: inherit;
+      }
 
       &::before,
       &::after {

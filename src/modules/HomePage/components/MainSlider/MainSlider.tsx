@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import styles from './MainSlider.module.scss';
 import { SvgIcon } from '../../../../shared/SvgIcon';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 const slides = [
   'img/banner-accessories.png',
@@ -15,20 +15,46 @@ interface Props {
 
 export const MainSlider: React.FC<Props> = ({ className = '' }) => {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const changeSlide = useCallback((direction: number) => {
+    setCurrentSlide(prev => (prev + direction + slides.length) % slides.length);
+  }, []);
+
+  const resetInterval = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+
+    intervalRef.current = setInterval(() => changeSlide(1), 5000);
+  }, [changeSlide]);
 
   const handleNext = () => {
-    setCurrentSlide(prev => (prev + 1) % slides.length);
+    changeSlide(1);
+    resetInterval();
   };
 
   const handlePrev = () => {
-    setCurrentSlide(prev => (prev - 1 + slides.length) % slides.length);
+    changeSlide(-1);
+    resetInterval();
+  };
+
+  const handleDotClick = (index: number, isActive: boolean) => {
+    if (!isActive) {
+      setCurrentSlide(index);
+      resetInterval();
+    }
   };
 
   useEffect(() => {
-    const intervalId = setInterval(handleNext, 5000);
+    resetInterval();
 
-    return () => clearInterval(intervalId);
-  }, []);
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [resetInterval]);
 
   return (
     <section className={cn(styles['main-slider'], className)}>
@@ -80,7 +106,7 @@ export const MainSlider: React.FC<Props> = ({ className = '' }) => {
           return (
             <button
               key={index}
-              onClick={() => setCurrentSlide(index)}
+              onClick={() => handleDotClick(index, isActive)}
               className={cn(styles['main-slider__dot'], {
                 [styles['main-slider__dot--active']]: isActive,
               })}

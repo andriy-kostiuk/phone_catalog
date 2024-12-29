@@ -6,6 +6,13 @@
   gap: 4px;
   align-items: center;
   height: 16px;
+  color: var(--secondary);
+
+  @include transition;
+
+  &:hover {
+    color: var(--primary);
+  }
 
   &__icon {
     transform: rotate(-90deg);
@@ -14,7 +21,6 @@
   &__text {
     @include small-text;
 
-    color: var(--secondary);
     line-height: 15px;
   }
 

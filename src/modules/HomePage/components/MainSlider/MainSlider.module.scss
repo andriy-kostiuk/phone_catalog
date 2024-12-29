@@ -27,10 +27,6 @@
   &__controller {
     display: none;
 
-    &:hover {
-      animation: squish 200ms ease-in-out;
-    }
-
     @include on-tablet {
       display: block;
       width: 32px;
@@ -38,6 +34,14 @@
       border: 1px solid var(--icon-secondary);
       background-color: inherit;
       padding: 8px;
+
+      @include transition;
+
+      &:hover {
+        animation: squish 200ms ease-in-out;
+        border-color: var(--btn-hover-border);
+        background-color: var(--btn-hover);
+      }
 
       svg {
         path {
@@ -103,11 +107,24 @@
       width: 14px;
       height: 4px;
       background-color: var(--elements);
+
+      @include transition(0.3s);
+    }
+
+    &:hover,
+    &--active {
+      opacity: 0.7;
+
+      &::after {
+        background-color: var(--primary);
+      }
     }
 
     &--active {
-      &::after {
-        background-color: var(--primary);
+      cursor: auto;
+
+      &:hover {
+        opacity: 1;
       }
     }
   }

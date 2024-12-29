@@ -1,10 +1,14 @@
-import { createContext, useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { Theme } from '../utils/constants';
 
-const initialState = {
+interface ThemeContextType {
+  theme: Theme;
+  setTheme: React.Dispatch<React.SetStateAction<Theme>>;
+}
+
+const initialState: ThemeContextType = {
   theme: Theme.LIGTH,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  setTheme: (_theme: Theme) => {},
+  setTheme: () => {},
 };
 
 export const ThemeContext = createContext(initialState);

@@ -15,8 +15,8 @@
   @include transition;
 
   &:hover {
-    border-color: var(--round-btn-hover-border);
-    background-color: var(--round-btn-hover);
+    border-color: var(--btn-hover-border);
+    background-color: var(--btn-hover);
   }
 
   &:disabled {

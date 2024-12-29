@@ -16,9 +16,10 @@ body.dark-theme {
   --active-link: #{$dark-white};
   --icon-primary: #{$dark-white};
   --icon-secondary: #{$dark-icons};
-  --round-btn-hover: #{$dark-icons};
-  --round-btn-hover-border: #{$dark-icons};
+  --btn-hover: #{$dark-icons};
+  --btn-hover-border: #{$dark-icons};
   --bg-secondary: #{$dark-surface-1};
   --text-active: #{$dark-black};
+  --shadow: #{$dark-shadow};
   --search-img: url('../../assets/images/icons/search-dark.svg');
 }

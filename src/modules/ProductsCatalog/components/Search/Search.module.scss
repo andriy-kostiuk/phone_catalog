@@ -29,7 +29,8 @@
 
     @include transition;
 
-    &:focus {
+    &:focus,
+    &:hover {
       border-color: var(--primary);
       outline: none;
     }

@@ -16,9 +16,10 @@ body.light-theme {
   --active-link: #{$light-primary};
   --icon-primary: #{$light-primary};
   --icon-secondary: #{$light-icons};
-  --round-btn-hover: #{$light-hover-bg};
-  --round-btn-hover-border: #{$light-primary};
+  --btn-hover: #{$light-hover-bg};
+  --btn-hover-border: #{$light-primary};
   --bg-secondary: #{$light-white};
   --text-active: #{$light-white};
+  --shadow: #{$light-shadow};
   --search-img: url('../../assets/images/icons/search-light.svg');
 }
