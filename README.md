@@ -1,6 +1,6 @@
 # TechShop
 
-[Phone Catalog (Link)](https://andriy-kostiuk.github.io/tech-shop/)
+[TechShop (Link)](https://andriy-kostiuk.github.io/tech-shop/)
 
 This is a fully functional e-commerce application built with React and TypeScript. It includes features such as product catalog, product details page, shopping cart, favorites, and more.
 
